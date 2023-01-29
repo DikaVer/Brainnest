@@ -40,3 +40,13 @@ for report_file in os.listdir(report_dir):
        'content-disposition', 'attachment', filename=report_file
    )
    msg.attach(attachment)
+
+# sends the email to an internet machine. In this case, it sends it to the localhost.
+sender = "sender@gmail.com"
+
+try:
+   smtpObj = smtplib.SMTP('localhost')
+   smtpObj.sendmail(sender, receivers, message)        
+   print("Successfully sent email")
+except smtplib.SMTPException:
+   print("Error: unable to send email")
