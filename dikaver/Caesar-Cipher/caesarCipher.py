@@ -42,15 +42,12 @@ print("Do you want to (e)ncrypt or (d)ecrypt?")
 user_input = input("> ")
 
 try:
+    num_input = get_input()
+    print("Enter the message to encrypt.")
+    message = input("> ")
     if user_input == "e":
-        num_input = get_input()
-        print("Enter the message to encrypt.")
-        message = input("> ")
         print(encrypt(message, num_input))
     elif user_input == "d":
-        num_input = get_input()
-        print("Enter the message to encrypt.")
-        message = input("> ")
         print(decrypt(message, num_input))
     else:
         print("Wrong input!")
