@@ -1,0 +1,22 @@
+import schedule
+import time
+import ftplib
+
+def transfer_files():
+    ftp = ftplib.FTP('ftp.server.com')
+    ftp.login(user='username', passwd='password')
+
+    filename = 'example.txt'
+    ftp.retrbinary('RETR ' + filename, open(filename, 'wb').write)
+
+    ftp.quit()
+
+schedule.every().day.at("10:00").do(transfer_files)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+    
+
+
+# Every day at 10:00 AM, this code will execute the transfer files function. The while loop guarantees ongoing operation of the scheduled tasks.
