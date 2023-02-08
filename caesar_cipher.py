@@ -1,6 +1,3 @@
-
-
-
 def encrypt(message, key):
     encrypt = ''
     for letter in message.lower():

@@ -1,7 +1,7 @@
 import os
 from shutil import move
 
-
+# Organize files by time
 def time_organizer(folder):
     os.chdir(folder)
     files = filter(os.path.isfile,os.listdir(folder))
@@ -9,7 +9,7 @@ def time_organizer(folder):
     files.sort(key=lambda x: os.path.getmtime(x))
     return '\n'.join(files)
 
-
+# Organize files by extension
 def ext_organizer(folder):
     extensions = []
     for item in os.listdir(folder):
